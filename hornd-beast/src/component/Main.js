@@ -1,11 +1,44 @@
 import React from 'react'
 import HornedBeast from './HornedBeasts'
+import hornedData from '../data.json'
 
 class Main extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            
+            data:hornedData
+
+    }
+
+}
+
+
 
     render(){
+        
         return(
-      <main>
+            
+   
+      <div>
+          {this.state.data.map(x=>{
+              return(<HornedBeast title={x.title} image={x.image_url} disc={x.description} horns={x.horns} />)
+          })}
+          
+          {/* {this.state.data.forEach(x=>{
+              (<button>click</button>)
+          })} */}
+        
+      </div>
+        )
+    }
+
+}
+
+export default Main
+
+
+/* <main>
           <HornedBeast key="narwhal" desc="A unicorn and a narwhal nuzzling their horns" img="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" title="UniWhal" alt="unicorn picture"/>
 
           <HornedBeast key="rhino" desc="Mother (or father) rhino with two babies" img="https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80" title="Rhino Family" alt="rihno picture"/>
@@ -13,9 +46,4 @@ class Main extends React.Component{
           <HornedBeast key="unicorn" desc="Someone wearing a creepy unicorn head mask" img="https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg" title="Unicorn Head" alt="another unicorn picture"/>
 
           
-      </main>
-        )
-    }
-}
-
-export default Main
+      </main> */

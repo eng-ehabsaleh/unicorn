@@ -21,8 +21,8 @@ class Main extends React.Component{
             
    
       <div>
-          {this.state.data.map(x=>{
-              return(<HornedBeast title={x.title} image={x.image_url} disc={x.description} horns={x.horns} />)
+          {this.state.data.map((x, index)=>{
+              return(<HornedBeast title={x.title} image={x.image_url} disc={x.description} horns={x.horns} key={index}/>)
           })}
           
           {/* {this.state.data.forEach(x=>{

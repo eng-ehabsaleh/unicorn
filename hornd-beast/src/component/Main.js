@@ -1,42 +1,58 @@
-import React from 'react'
-import HornedBeast from './HornedBeasts'
-import hornedData from '../data.json'
+import React from "react";
+// import HornedBeast from "./HornedBeasts";
+// import hornedData from '../data.json'
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      // data:hornedData
+      votes: 0,
+    };
+  }
+  doSmthn = () => {
+      this.setState({
+        votes:this.state.votes+1
+    })
 
-class Main extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            
-            data:hornedData
+    this.props.increasingVotes();
+  };
 
-    }
-
-}
-
-
-
-    render(){
-        
-        return(
-            
-   
+  render() {
+    return (
       <div>
-          {this.state.data.map((x, index)=>{
-              return(<HornedBeast title={x.title} image={x.image_url} disc={x.description} horns={x.horns} key={index}/>)
-          })}
-          
-          {/* {this.state.data.forEach(x=>{
-              (<button>click</button>)
-          })} */}
-        
+        <Card style={{ width: "18rem" }}>
+          <Card.Img
+            src={this.props.image_url}
+            alt={this.props.title}
+            onClick={this.doSmthn}
+          />
+          <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>
+              {this.props.description} which has this number of{" "}
+              {this.props.horns} horns
+            </Card.Text>
+            <Card.Text>you gave it {this.state.votes}💓</Card.Text>
+            <Button variant="primary" onClick={this.props.handleClose}>
+              Clik Me
+            </Button>
+          </Card.Body>
+        </Card>
       </div>
-        )
-    }
-
+    );
+  }
 }
 
-export default Main
+export default Main;
+// {this.state.data.map((x, index)=>{
+//     return(<HornedBeast title={x.title} image={x.image_url} disc={x.description} horns={x.horns} key={index}/>)
+// })}
 
+//  {this.state.data.forEach(x=>{
+//     (<button>click</button>)
+// })}
 
 /* <main>
           <HornedBeast key="narwhal" desc="A unicorn and a narwhal nuzzling their horns" img="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" title="UniWhal" alt="unicorn picture"/>

@@ -1,6 +1,5 @@
 import React from "react";
-// import HornedBeast from "./HornedBeasts";
-// import hornedData from '../data.json'
+
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 class Main extends React.Component {
@@ -16,7 +15,7 @@ class Main extends React.Component {
         votes:this.state.votes+1
     })
 
-    this.props.increasingVotes();
+    // this.props.increasingVotes1();
   };
 
   render() {
